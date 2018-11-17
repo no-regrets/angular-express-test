@@ -9,7 +9,8 @@ const corsOptions = {
   optionsSuccessStatus: 200
 }
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
+app.use(express.static('dist/angular6-httpclient'));
 
 const db = require('./app/config/db.config.js');
   
