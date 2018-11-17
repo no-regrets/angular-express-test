@@ -12,24 +12,24 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.static('dist/angular6-httpclient'));
 
-const db = require('./app/config/db.config.js');
+const db = require('./app/model');
   
 // force: true will drop the table if it already exists
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync with { force: true }');
-  initial();
-});
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync with { force: true }');
+//   initial();
+// });
 
 require('./app/route/customer.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
  
-  let host = server.address().address
-  let port = server.address().port
+  let host = server.address().address;
+  let port = server.address().port;
 
   console.log("App listening at http://%s:%s", host, port);
-})
+});
 
 function initial(){
 
@@ -40,43 +40,43 @@ function initial(){
       lastname: "Thomas",
       age: 36
     },
-    {
-      id: 2,
-      firstname: "Peter",
-      lastname: "Smith",
-      age: 18
-    },
-    {
-      id: 3,
-      firstname: "Lauren",
-      lastname: "Taylor",
-      age: 31
-    },
-    {
-      id: 4,
-      firstname: "Mary",
-      lastname: "Taylor",
-      age: 24
-    },
-    {
-      id: 5,
-      firstname: "David",
-      lastname: "Moore",
-      age: 25
-    },
-    {
-      id: 6,
-      firstname: "Holly",
-      lastname: "Davies",
-      age: 27
-    },
-    {
-      id: 7,
-      firstname: "Michael",
-      lastname: "Brown",
-      age: 45
-    }
-  ]
+    // {
+    //   id: 2,
+    //   firstname: "Peter",
+    //   lastname: "Smith",
+    //   age: 18
+    // },
+    // {
+    //   id: 3,
+    //   firstname: "Lauren",
+    //   lastname: "Taylor",
+    //   age: 31
+    // },
+    // {
+    //   id: 4,
+    //   firstname: "Mary",
+    //   lastname: "Taylor",
+    //   age: 24
+    // },
+    // {
+    //   id: 5,
+    //   firstname: "David",
+    //   lastname: "Moore",
+    //   age: 25
+    // },
+    // {
+    //   id: 6,
+    //   firstname: "Holly",
+    //   lastname: "Davies",
+    //   age: 27
+    // },
+    // {
+    //   id: 7,
+    //   firstname: "Michael",
+    //   lastname: "Brown",
+    //   age: 45
+    // }
+  ];
 
   // Init data -> save to MySQL
   const Customer = db.customers;
