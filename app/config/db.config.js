@@ -2,10 +2,12 @@ const env = require('./env.js');
 
 const Sequelize = require('sequelize');
 
+let sequelize;
+
 if (process.env.JAWSDB_URL){
-  const sequelize = new Sequelize(process.env.JAWSDB_URL)
+  sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
-  const sequelize = new Sequelize(env.database, env.username, env.password, {
+  sequelize = new Sequelize(env.database, env.username, env.password, {
     host: env.host,
     dialect: env.dialect,
     operatorsAliases: false,
