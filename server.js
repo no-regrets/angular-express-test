@@ -1,13 +1,13 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-const cors = require('cors')
+const cors = require('cors');
 const corsOptions = {
   origin: 'http://localhost:4200',
   optionsSuccessStatus: 200
-}
+};
 
 app.use(cors(corsOptions));
 app.use(express.static('dist/angular6-httpclient'));

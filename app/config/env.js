@@ -1,10 +1,10 @@
 const env = {
-  database: 'testdb',
-  username: 'root',
-  password: 'testtest',
-  host: 'localhost',
-  dialect: 'mysql',
-  pool: {
+  SQLdatabase: 'testdb',
+  SQLusername: 'root',
+  SQLpassword: 'testtest',
+  SQLhost: 'localhost',
+  SQLdialect: 'mysql',
+  SQLpool: {
 	  max: 5,
 	  min: 0,
 	  acquire: 30000,
