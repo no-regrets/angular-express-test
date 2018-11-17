@@ -23,7 +23,8 @@ const db = require('./app/model');
 require('./app/route/customer.route.js')(app);
  
 // Create a Server
-var server = app.listen(8080, function () {
+let PORT = process.env.PORT || 8080;
+var server = app.listen(PORT, function () {
  
   let host = server.address().address;
   let port = server.address().port;
